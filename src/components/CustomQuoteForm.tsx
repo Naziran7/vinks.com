@@ -30,11 +30,11 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
 
   useEffect(() => {
     if (initialProjectType || initialDiscountCode) {
-      let defaultBudget = '₹1,999 – ₹4,999 (Project Tier)';
-      if (initialProjectType === 'STARTER') defaultBudget = '₹1,499 – ₹1,999 (Starter Tier)';
-      else if (initialProjectType === 'PROJECT') defaultBudget = '₹1,999 – ₹4,999 (Project Tier)';
-      else if (initialProjectType === 'BUSINESS') defaultBudget = '₹4,999 – ₹7,999 (Business Tier)';
-      else if (initialProjectType === 'AI / CUSTOM') defaultBudget = '₹7,999 – ₹14,999 (AI / Custom Tier)';
+      let defaultBudget = '₹1,999 – ₹3,999 (Project)';
+      if (initialProjectType === 'STARTER') defaultBudget = '₹1,499 – ₹2,499 (Starter)';
+      else if (initialProjectType === 'PROJECT') defaultBudget = '₹1,999 – ₹3,999 (Project)';
+      else if (initialProjectType === 'BUSINESS') defaultBudget = '₹3,999 – ₹5,999 (Business)';
+      else if (initialProjectType === 'AI / CUSTOM') defaultBudget = '₹5,999 – ₹7,999 (AI / Custom / MVP)';
 
       setFormData(prev => ({
         ...prev,
@@ -59,39 +59,70 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
   ];
 
   const budgetRanges = [
-    '₹1,499 – ₹1,999 (Starter Tier)',
-    '₹1,999 – ₹4,999 (Project Tier)',
-    '₹4,999 – ₹7,999 (Business Tier)',
-    '₹7,999 – ₹14,999 (AI / Custom Tier)',
-    '₹15,000+ (Enterprise / Full SaaS MVP)'
+    '₹1,499 – ₹2,499 (Starter)',
+    '₹1,999 – ₹3,999 (Project)',
+    '₹3,999 – ₹5,999 (Business)',
+    '₹4,999 – ₹6,999 (E-Commerce / Web App)',
+    '₹5,999 – ₹7,999 (AI / Custom / MVP)'
   ];
 
   // Dynamic estimated range calculation for user feedback
   const getEstimatedPrice = () => {
-    switch (formData.projectType) {
-      case 'STARTER':
-      case 'Portfolio':
-        return '₹1,499 - ₹2,999';
-      case 'PROJECT':
-      case 'Final-Year Project':
-        return '₹1,999 - ₹4,999';
-      case 'BUSINESS':
-      case 'Business Website':
-        return '₹4,999 - ₹9,999';
-      case 'E-Commerce':
-        return '₹4,999 - ₹12,999';
-      case 'AI / CUSTOM':
-      case 'AI/ML Project':
-        return '₹7,999 - ₹19,999';
-      case 'Web Application':
-        return '₹4,999 - ₹14,999';
-      case 'Startup MVP':
-        return '₹7,999 - ₹24,999';
-      case 'Custom Software':
-        return '₹7,999+';
-      default:
-        return '₹1,499+';
-    }
+switch (formData.projectType) {
+  // 🎨 STARTER
+  case 'STARTER':
+  case 'Portfolio':
+  case 'Student Bio Link':
+  case 'Basic Landing Page':
+  case 'Single Service Site':
+    return '₹1,499 - ₹2,499';
+
+  // 🎓 STUDENT PROJECT
+  case 'PROJECT':
+  case 'Final-Year Project':
+  case 'College Capstone App':
+  case 'Freelancer Portfolio':
+    return '₹1,999 - ₹3,999';
+
+  // 💼 BUSINESS
+  case 'BUSINESS':
+  case 'Business Website':
+  case 'Admin Dashboard':
+  case 'Service Company Portal':
+    return '₹3,999 - ₹5,999';
+
+  // 🛒 E-COMMERCE
+  case 'E-Commerce':
+  case 'E-Commerce Website':
+  case 'Online Store':
+    return '₹4,999 - ₹6,999';
+
+  // 🌐 WEB APPLICATION
+  case 'Web Application':
+  case 'Full Stack Web Application':
+    return '₹4,999 - ₹6,999';
+
+  // 🤖 AI / ML
+  case 'AI / CUSTOM':
+  case 'AI/ML Project':
+  case 'AI/ML Application':
+  case 'Custom ChatGPT Bot':
+  case 'Workflow Automation':
+    return '₹5,999 - ₹7,499';
+
+  // 🚀 STARTUP MVP
+  case 'Startup MVP':
+  case 'Startup MVP SaaS Product':
+    return '₹5,999 - ₹7,999';
+
+  // 🧩 CUSTOM SOFTWARE
+  case 'Custom Software':
+    return '₹6,999 - ₹7,999';
+
+  // DEFAULT
+  default:
+    return '₹1,499 - ₹2,999';
+}
   };
 
   const handleSubmit = (e: React.FormEvent) => {

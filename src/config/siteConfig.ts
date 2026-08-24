@@ -330,8 +330,8 @@ export const siteConfig = {
         {
           id: "business",
           name: "BUSINESS",
-          startingPrice: "₹4,999+",
-          rawPrice: 4999,
+          startingPrice: "₹3,999+",
+          rawPrice: 3999,
           period: "one-time",
           badge: "Growth Choice",
           suitableFor: [
@@ -353,8 +353,8 @@ export const siteConfig = {
         {
           id: "ai-custom",
           name: "AI / CUSTOM",
-          startingPrice: "₹7,999+",
-          rawPrice: 7999,
+          startingPrice: "₹5,999+",
+          rawPrice: 5999,
           period: "one-time",
           badge: "Enterprise & AI",
           suitableFor: [
