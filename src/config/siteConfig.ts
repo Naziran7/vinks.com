@@ -71,7 +71,7 @@ export const siteConfig = {
     heroTitle: "We Build Ideas Into Digital Solutions.",
     heroSubhead: "Modern Websites, AI Solutions & Digital Products — Built for Less.",
     heroDescription: "VINKS helps students, startups, freelancers and businesses turn ideas into professional digital products without the high development cost.",
-    trustBadge: "🚀 Affordable • Professional • Custom-Built",
+    trustBadge: " Affordable • Professional • Custom-Built",
     logoPath: "/Logo.png",
     yearFounded: 2026,
   },
@@ -285,7 +285,7 @@ export const siteConfig = {
           id: "starter",
           name: "STARTER",
           startingPrice: "₹1,499+",
-          rawPrice: 1999,
+          rawPrice: 1499,
           period: "one-time",
           badge: "Budget Friendly",
           suitableFor: [
@@ -308,7 +308,7 @@ export const siteConfig = {
           id: "project",
           name: "PROJECT",
           startingPrice: "₹1,999+",
-          rawPrice: 4999,
+          rawPrice: 1999,
           period: "one-time",
           badge: "Most Popular",
           suitableFor: [
@@ -331,7 +331,7 @@ export const siteConfig = {
           id: "business",
           name: "BUSINESS",
           startingPrice: "₹4,999+",
-          rawPrice: 9999,
+          rawPrice: 4999,
           period: "one-time",
           badge: "Growth Choice",
           suitableFor: [
@@ -354,7 +354,7 @@ export const siteConfig = {
           id: "ai-custom",
           name: "AI / CUSTOM",
           startingPrice: "₹7,999+",
-          rawPrice: 14999,
+          rawPrice: 7999,
           period: "one-time",
           badge: "Enterprise & AI",
           suitableFor: [

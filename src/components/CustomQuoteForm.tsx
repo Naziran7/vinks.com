@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Paperclip, CheckCircle2, AlertCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
@@ -17,7 +17,7 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
     phone: '',
     customerType: 'Student',
     projectType: initialProjectType || 'Business Website',
-    budget: '₹5,000–₹10,000',
+    budget: '₹1,999 – ₹4,999 (Project Tier)',
     description: '',
     deadline: '2 Weeks',
     referenceUrl: '',
@@ -27,6 +27,16 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedQuote, setSubmittedQuote] = useState<{ quoteId: string; message: string; whatsappUrl: string } | null>(null);
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    if (initialProjectType || initialDiscountCode) {
+      setFormData(prev => ({
+        ...prev,
+        projectType: initialProjectType || prev.projectType,
+        discountCode: initialDiscountCode || prev.discountCode,
+      }));
+    }
+  }, [initialProjectType, initialDiscountCode]);
 
   const customerTypes = ['Student', 'Startup', 'Small Business', 'Freelancer', 'Other'];
   
@@ -42,25 +52,38 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
   ];
 
   const budgetRanges = [
-    'Under ₹5,000',
-    '₹5,000–₹10,000',
-    '₹10,000–₹25,000',
-    '₹25,000–₹50,000',
-    '₹50,000+'
+    '₹1,499 – ₹1,999 (Starter Tier)',
+    '₹1,999 – ₹4,999 (Project Tier)',
+    '₹4,999 – ₹7,999 (Business Tier)',
+    '₹7,999 – ₹14,999 (AI / Custom Tier)',
+    '₹15,000+ (Enterprise / Full SaaS MVP)'
   ];
 
   // Dynamic estimated range calculation for user feedback
   const getEstimatedPrice = () => {
     switch (formData.projectType) {
-      case 'Portfolio': return '₹1,999 - ₹4,999';
-      case 'Final-Year Project': return '₹4,999 - ₹9,999';
-      case 'Business Website': return '₹4,999 - ₹12,999';
-      case 'E-Commerce': return '₹9,999 - ₹19,999';
-      case 'AI/ML Project': return '₹9,999 - ₹24,999';
-      case 'Web Application': return '₹9,999 - ₹29,999';
-      case 'Startup MVP': return '₹14,999 - ₹34,999';
-      case 'Custom Software': return '₹19,999+';
-      default: return '₹4,999+';
+      case 'STARTER':
+      case 'Portfolio':
+        return '₹1,499 - ₹2,999';
+      case 'PROJECT':
+      case 'Final-Year Project':
+        return '₹1,999 - ₹4,999';
+      case 'BUSINESS':
+      case 'Business Website':
+        return '₹4,999 - ₹9,999';
+      case 'E-Commerce':
+        return '₹4,999 - ₹12,999';
+      case 'AI / CUSTOM':
+      case 'AI/ML Project':
+        return '₹7,999 - ₹19,999';
+      case 'Web Application':
+        return '₹4,999 - ₹14,999';
+      case 'Startup MVP':
+        return '₹7,999 - ₹24,999';
+      case 'Custom Software':
+        return '₹7,999+';
+      default:
+        return '₹1,499+';
     }
   };
 
@@ -73,16 +96,17 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
 
     const text = `Hello VINKS! I'd like to request a quote for my project:
 
-📌 *Project Details*
+📌 *Project & Budget Details*
 • *Ref ID:* ${quoteId}
 • *Name:* ${formData.name}
 • *Email:* ${formData.email}
 • *Phone:* ${formData.phone}
 • *Category:* ${formData.customerType}
 • *Project Type:* ${formData.projectType}
-• *Budget Target:* ${formData.budget}
-• *Estimated Timeline:* ${formData.deadline}
-${formData.discountCode ? `• *Discount Code:* ${formData.discountCode}\n` : ''}${formData.description ? `• *Description:* ${formData.description}\n` : ''}${formData.referenceUrl ? `• *Reference Link:* ${formData.referenceUrl}\n` : ''}`;
+• *Budget Range:* ${formData.budget}
+• *Estimated Pricing:* ${getEstimatedPrice()}
+• *Preferred Deadline:* ${formData.deadline}
+${formData.discountCode ? `• *Applied Package / Code:* ${formData.discountCode}\n` : ''}${formData.description ? `• *Description:* ${formData.description}\n` : ''}${formData.referenceUrl ? `• *Reference Link:* ${formData.referenceUrl}\n` : ''}`;
 
     const whatsappUrl = `https://wa.me/919845820117?text=${encodeURIComponent(text)}`;
 
