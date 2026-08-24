@@ -30,9 +30,16 @@ export const CustomQuoteForm: React.FC<CustomQuoteFormProps> = ({
 
   useEffect(() => {
     if (initialProjectType || initialDiscountCode) {
+      let defaultBudget = '₹1,999 – ₹4,999 (Project Tier)';
+      if (initialProjectType === 'STARTER') defaultBudget = '₹1,499 – ₹1,999 (Starter Tier)';
+      else if (initialProjectType === 'PROJECT') defaultBudget = '₹1,999 – ₹4,999 (Project Tier)';
+      else if (initialProjectType === 'BUSINESS') defaultBudget = '₹4,999 – ₹7,999 (Business Tier)';
+      else if (initialProjectType === 'AI / CUSTOM') defaultBudget = '₹7,999 – ₹14,999 (AI / Custom Tier)';
+
       setFormData(prev => ({
         ...prev,
         projectType: initialProjectType || prev.projectType,
+        budget: defaultBudget,
         discountCode: initialDiscountCode || prev.discountCode,
       }));
     }
@@ -270,7 +277,29 @@ ${formData.discountCode ? `• *Applied Package / Code:* ${formData.discountCode
                   </div>
                 </div>
 
-                {/* Budget Selection */}
+                {/* Target Budget Range Selector */}
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">Target Budget Range *</label>
+                    <span className="text-xs font-semibold text-cyan-400">Est: {getEstimatedPrice()}</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+                    {budgetRanges.map((bRange) => (
+                      <button
+                        type="button"
+                        key={bRange}
+                        onClick={() => setFormData({ ...formData, budget: bRange })}
+                        className={`px-3 py-2.5 rounded-xl text-xs font-medium text-left transition-all ${
+                          formData.budget === bRange
+                            ? 'bg-blue-600/30 text-cyan-300 border border-cyan-500/60 font-bold shadow-lg shadow-blue-500/20'
+                            : 'bg-slate-900 text-slate-300 border border-slate-800 hover:border-slate-700'
+                        }`}
+                      >
+                        {bRange}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
 
                 {/* Project Description */}
