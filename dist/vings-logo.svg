@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Premium Metallic Silver & Cyan Gradients -->
+    <linearGradient id="silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="35%" stop-color="#E2E8F0"/>
+      <stop offset="70%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+
+    <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#06B6D4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- VINKS Winged Emblem -->
+  <g filter="url(#subtle-shadow)">
+    <!-- LEFT WING -->
+    <!-- Top Feather (Longest) -->
+    <polygon points="256,230 80,160 210,218" fill="url(#silver-grad)"/>
+    <!-- Middle Feather -->
+    <polygon points="210,218 135,218 232,242" fill="url(#silver-grad)" opacity="0.95"/>
+    <!-- Bottom Feather -->
+    <polygon points="232,242 175,242 246,260" fill="url(#silver-grad)" opacity="0.88"/>
+
+    <!-- RIGHT WING -->
+    <!-- Top Feather (Longest) -->
+    <polygon points="256,230 432,160 302,218" fill="url(#silver-grad)"/>
+    <!-- Middle Feather -->
+    <polygon points="302,218 377,218 280,242" fill="url(#silver-grad)" opacity="0.95"/>
+    <!-- Bottom Feather -->
+    <polygon points="280,242 337,242 266,260" fill="url(#silver-grad)" opacity="0.88"/>
+
+    <!-- CENTER HEAD / CHEST NOTCH -->
+    <polygon points="256,220 242,246 256,262 270,246" fill="#FFFFFF"/>
+
+    <!-- TAIL FEATHERS -->
+    <!-- Center Tail Feather -->
+    <polygon points="256,264 245,295 256,335 267,295" fill="url(#silver-grad)"/>
+    <!-- Inner Left Tail Feather -->
+    <polygon points="244,262 228,288 238,320 250,296" fill="url(#silver-grad)" opacity="0.9"/>
+    <!-- Inner Right Tail Feather -->
+    <polygon points="268,262 284,288 274,320 262,296" fill="url(#silver-grad)" opacity="0.9"/>
+    <!-- Outer Left Tail Feather -->
+    <polygon points="234,258 214,278 224,302 240,286" fill="url(#silver-grad)" opacity="0.8"/>
+    <!-- Outer Right Tail Feather -->
+    <polygon points="278,258 298,278 288,302 272,286" fill="url(#silver-grad)" opacity="0.8"/>
+  </g>
+</svg>
