@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
             </div>
             
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-2xl tracking-wider text-white group-hover:text-slate-200 transition-colors">
+              <span className="font-display font-extrabold text-xl sm:text-2xl tracking-wider text-white group-hover:text-slate-200 transition-colors">
                 {siteConfig.company.name}
               </span>
               <span className="text-[9px] font-semibold tracking-widest text-slate-400 uppercase -mt-1 opacity-90">
@@ -165,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-[#07090E]/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl px-6 py-6 transition-all animate-fadeIn">
+        <div className="md:hidden fixed inset-x-0 top-[65px] max-h-[calc(100vh-70px)] overflow-y-auto bg-[#07090E]/95 backdrop-blur-xl border-b border-slate-800 shadow-2xl px-6 py-6 transition-all animate-fadeIn">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);

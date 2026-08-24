@@ -222,13 +222,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote }) => {
               </div>
 
               {/* Floating Status Pill 1 */}
-              <div className="absolute -top-4 -right-4 bg-slate-900/95 border border-cyan-500/40 text-white px-4 py-2 rounded-xl shadow-xl flex items-center gap-2 text-xs font-semibold animate-bounce">
+              <div className="absolute -top-4 right-2 sm:-right-4 bg-slate-900/95 border border-cyan-500/40 text-white px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl shadow-xl flex items-center gap-2 text-xs font-semibold animate-bounce">
                 <Zap className="w-4 h-4 text-yellow-400" />
                 <span>⚡ Student Special Rates</span>
               </div>
 
               {/* Floating Status Pill 2 */}
-              <div className="absolute -bottom-5 -left-4 bg-slate-900/95 border border-blue-500/40 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center gap-2.5 text-xs font-semibold">
+              <div className="absolute -bottom-5 left-2 sm:-left-4 bg-slate-900/95 border border-blue-500/40 text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-xl flex items-center gap-2.5 text-xs font-semibold">
                 <ShieldCheck className="w-4.5 h-4.5 text-emerald-400" />
                 <div>
                   <div className="text-white font-bold">100% Quality Code</div>

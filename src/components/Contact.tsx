@@ -50,8 +50,8 @@ export const Contact: React.FC<ContactProps> = ({ onOpenQuote }) => {
               href={`mailto:${siteConfig.contact.email}`}
               className="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 text-slate-300 hover:text-white transition-colors flex items-center justify-center gap-2"
             >
-              <Mail className="w-4 h-4 text-cyan-400" />
-              <span>{siteConfig.contact.email}</span>
+              <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+              <span className="break-all sm:break-normal">{siteConfig.contact.email}</span>
             </a>
 
             <a

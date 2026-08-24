@@ -89,7 +89,7 @@ export const LiveDemoModal: React.FC<LiveDemoModalProps> = ({ project, onClose }
           
           <div
             className={`transition-all duration-300 h-full bg-[#0F172A] border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${
-              deviceMode === 'mobile' ? 'w-[375px] h-[680px] rounded-[36px] border-8 border-slate-800' : 'w-full h-full'
+              deviceMode === 'mobile' ? 'w-full max-w-[375px] h-full max-h-[680px] rounded-[36px] border-4 sm:border-8 border-slate-800' : 'w-full h-full'
             }`}
           >
             {/* Embedded Live Simulation Frame */}

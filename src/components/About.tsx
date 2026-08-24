@@ -109,7 +109,7 @@ export const About: React.FC = () => {
               <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">
                 End-to-End Project Execution:
               </div>
-              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs sm:text-sm font-semibold text-white flex flex-wrap items-center justify-between gap-2">
+              <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs sm:text-sm font-semibold text-white flex flex-wrap items-center justify-center sm:justify-between gap-2">
                 <span className="text-slate-300">Idea</span>
                 <span className="text-cyan-400">→</span>
                 <span className="text-slate-300">Design</span>
